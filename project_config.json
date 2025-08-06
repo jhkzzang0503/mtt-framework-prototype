@@ -1,0 +1,9 @@
+{
+    "backend": {
+        "framework": "java-spring",
+        "version": "3.4.8"
+    },
+    "frontend": {
+        "description": "React"
+    }
+}
