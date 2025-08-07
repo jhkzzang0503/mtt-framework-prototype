@@ -73,21 +73,23 @@ public class CustomExceptionFilter implements Filter {
     * ${tages}
     */
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws CustomException, IOException, ServletException {
+    // public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws CustomException, IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException, IOException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
 
-        try {
+        filterChain.doFilter(req, res);
+        /*try {
             filterChain.doFilter(req, res);
         }catch (Exception e){
-            LOGGER.error(e.getMessage());
+            *//*LOGGER.error(e.getMessage());
             Throwable cause = e.getCause();
             if(cause instanceof CustomException){
                 handleActionException(req, res, (CustomException) cause);
             }else{
                 handleActionException(req, res, new CustomException(ErrorCode.getErrorCode(res.getStatus())));
-            }
-        }
+            }*//*
+        }*/
     }
 
     /**

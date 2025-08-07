@@ -112,8 +112,9 @@ public class SecurityConfig {
                         })
                 );
 
+        // csrf 세팅 필요
         http.csrf((auth) -> {
-           auth.ignoringRequestMatchers("/menu/userList", "/test/**","/kmc/step3","/api/**","/loginProc");
+           auth.ignoringRequestMatchers("/**");
         });
 
 

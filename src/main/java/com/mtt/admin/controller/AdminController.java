@@ -28,7 +28,7 @@ import java.util.Map;
  * </PRE>
  */
 
-@Profile("dev")
+@Profile("local")
 @RestController
 @RequiredArgsConstructor
 public class AdminController {
@@ -47,11 +47,16 @@ public class AdminController {
     * @ReturnType   :
     * ${tages}
     */
-    @PostMapping("/admin/test.do")
-    public AdminDto getTest(@RequestBody(required = false) Map<String, String> req, Model model){
+    @PostMapping("/admin/postTest")
+    public AdminDto postTest(@RequestBody(required = false) Map<String, String> req){
 
         AdminDto result = new AdminDto();
-        result.setCmmCd("asd");
+
+        try{
+            result.setCmmCd("asd");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return result;
     }
@@ -68,11 +73,15 @@ public class AdminController {
      * @ReturnType   :
      * ${tages}
      */
-    @GetMapping("/admin/test.do")
-    public AdminDto getTest(@RequestParam(required = false) String req, Model model){
+    @GetMapping("/admin/getTest")
+    public AdminDto getTest(@RequestParam(required = false) String req){
 
         AdminDto result = new AdminDto();
-        result.setCmmCd("asd");
+        try{
+            result.setCmmCd("asd");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return result;
     }

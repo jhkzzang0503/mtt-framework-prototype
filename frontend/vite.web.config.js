@@ -6,11 +6,20 @@ export default defineConfig({
   root: 'target',
   resolve: {
     alias: {
-      '@': '/src'
+      '@': '/src',
+    }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   },
   build: {
-    outDir: '../../src/main/resources/static',
+    outDir: '../web',
     emptyOutDir: true
   },
   base: '/'

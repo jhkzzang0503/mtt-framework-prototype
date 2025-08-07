@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "admin": "vite --config vite.admin.config.js",
+    "admin": "vite --config vite.admin.config.js --port 3000",
+    "web": "vite --config vite.web.config.js --port 3001",
     "dev": "vite --config vite.dev.config.js",
-    "build": "vite build --config vite.admin.config.js",
+    "build:admin": "vite build --config vite.admin.config.js",
+    "build:web": "vite build --config vite.web.config.js",
     "build:dev": "vite build --config vite.dev.config.js",
     "build-and-admin": "npm run build && npm run admin",
     "lint": "eslint .",

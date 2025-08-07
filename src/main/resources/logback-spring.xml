@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!--<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <property name="LOG_PATTERN" value="%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-5level [%logger{0}:%line] - %msg %n"/>
-    <property name="LOG_PATH" value="${LOG_PATH}"/>
 
-    <include resource="appender/logback-console.xml"/>
-    <include resource="appender/logback-file.xml"/>
-    <include resource="appender/logback-error.xml"/>
-    &lt;!&ndash;local&ndash;&gt;
+    <!-- Appender 파일이 없으므로 직접 정의합니다. -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- spring.profiles.active=local 일 때 CONSOLE에 로그 출력 -->
     <springProfile name="local">
         <root level="DEBUG">
             <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
-    &lt;!&ndash;dev&ndash;&gt;
+
+    <!-- spring.profiles.active=dev 또는 prod 일 때 -->
     <springProfile name="dev,prod">
-&lt;!&ndash;        <property name="LOG_PATH" value="${LOG_PATH}"/>&ndash;&gt;
+        <!-- root 로거를 CONSOLE과 FILE에 모두 출력하도록 수정 -->
         <root level="INFO">
-            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
         </root>
         <logger name="jdbc.sqlonly" level="DEBUG" additivity="false">
-            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
         </logger>
         <logger name="jdbc.sqltiming" level="OFF" >
-            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
         </logger>
 
         <logger level="ERROR" name="errorLogger"  additivity="false" >
             <appender-ref ref="ERROR"/>
+            <appender-ref ref="CONSOLE"/>
         </logger>
-    </springProfile>-->
-
-    <!--prod-->
-<!--    <springProfile name="prod">-->
-<!--        <property name="LOG_PATH" value="/data/logs"/>-->
-<!--        <root level="INFO">-->
-<!--            <appender-ref ref="FILE"/>-->
-<!--        </root>-->
-<!--        <logger name="jdbc.sqlonly" level="DEBUG" additivity="false" >-->
-<!--            <appender-ref ref="FILE"/>-->
-<!--        </logger>-->
-<!--        <logger name="jdbc.sqltiming" level="OFF"  >-->
-<!--            <appender-ref ref="FILE"/>-->
-<!--        </logger>-->
-
-<!--        <logger level="ERROR" name="errorLogger"  additivity="false">-->
-<!--            <appender-ref ref="ERROR"/>-->
-<!--        </logger>-->
-<!--    </springProfile>-->
+    </springProfile>
 
 </configuration>

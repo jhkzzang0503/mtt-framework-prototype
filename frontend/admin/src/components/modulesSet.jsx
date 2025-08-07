@@ -56,18 +56,18 @@ const ModulesSet = ({ selectedModule, onStyleChange }) => {
     }));*/
 
     try {
-      const response = await fetchData('/admin/test.do');
+      const response = await fetchData('/api/admin/getTest');
 
       // API 호출이 성공하면 `response` 객체에서 데이터에 접근할 수 있습니다.
       const result = response.data;
       console.log("API 호출 성공1:", result);
 
       let postData = {"test" : "test"};
-      const response2 = await fetchData('/admin/test.do', 'post', postData);
+      const response2 = await fetchData('/api/admin/postTest', 'post', postData);
 
       // API 호출이 성공하면 `response` 객체에서 데이터에 접근할 수 있습니다.
-      const result2 = response.data;
-      console.log("API 호출 성공2:", result);
+      const result2 = response2.data;
+      console.log("API 호출 성공2:", result2);
 
 
     } catch (err) {
