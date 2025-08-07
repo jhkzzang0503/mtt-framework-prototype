@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_PATTERN" value="%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-5level [%logger{0}:%line] - %msg %n"/>
+    <property name="LOG_PATH" value="${LOG_PATH}"/>
+
+    <include resource="appender/logback-console.xml"/>
+    <include resource="appender/logback-file.xml"/>
+    <include resource="appender/logback-error.xml"/>
+    &lt;!&ndash;local&ndash;&gt;
+    <springProfile name="local">
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    &lt;!&ndash;dev&ndash;&gt;
+    <springProfile name="dev,prod">
+&lt;!&ndash;        <property name="LOG_PATH" value="${LOG_PATH}"/>&ndash;&gt;
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+        </root>
+        <logger name="jdbc.sqlonly" level="DEBUG" additivity="false">
+            <appender-ref ref="FILE"/>
+        </logger>
+        <logger name="jdbc.sqltiming" level="OFF" >
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <logger level="ERROR" name="errorLogger"  additivity="false" >
+            <appender-ref ref="ERROR"/>
+        </logger>
+    </springProfile>-->
+
+    <!--prod-->
+<!--    <springProfile name="prod">-->
+<!--        <property name="LOG_PATH" value="/data/logs"/>-->
+<!--        <root level="INFO">-->
+<!--            <appender-ref ref="FILE"/>-->
+<!--        </root>-->
+<!--        <logger name="jdbc.sqlonly" level="DEBUG" additivity="false" >-->
+<!--            <appender-ref ref="FILE"/>-->
+<!--        </logger>-->
+<!--        <logger name="jdbc.sqltiming" level="OFF"  >-->
+<!--            <appender-ref ref="FILE"/>-->
+<!--        </logger>-->
+
+<!--        <logger level="ERROR" name="errorLogger"  additivity="false">-->
+<!--            <appender-ref ref="ERROR"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+</configuration>

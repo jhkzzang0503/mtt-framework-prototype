@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    파 일 명 : /mappers/comm/commMapper.xml
+    작성일자 : 24. 7. 3.
+    작 성 자 : 장호근(jhkwebm@mteletec.com)
+    설    명 : [RichDivineCRM] 사용자 xml
+  -->
+
+<mapper namespace="">
+
+</mapper>
