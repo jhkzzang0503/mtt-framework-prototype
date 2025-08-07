@@ -7,11 +7,12 @@ const useBuilderStore = create(immer((set, get) => ({
   items: [],
   selectedItemId: null,
 
-    addItem: ({ type, renderedComponent, properties }, insertIndex = -1) =>
+    addItem: ({ type, path, renderedComponent, properties }, insertIndex = -1) =>
         set((state) => {
             const newItem = {
-                id: uuidv4(),
+                id: type,
                 type: type,
+                path: path,
                 properties: properties,
                 // 기본 스타일을 styles 객체 내부로 통일하는 것을 추천합니다.
                 styles: { padding: '10px', margin: '5px' },

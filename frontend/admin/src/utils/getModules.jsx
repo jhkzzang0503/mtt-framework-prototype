@@ -6,7 +6,7 @@ const getModules = () => {
 
   Object.keys(modulesToImport).forEach((key) => {
     const moduleName = key.replace('../components/modules/', '').replace(/\.jsx$/, '');
-    const modulePath = `../components/modules/${moduleName}`;
+    const modulePath = `@modulePath/components/modules/${moduleName}`;
     const pathParts = moduleName.split('/');
     const categoryName = pathParts[0];
     const componentName = pathParts.slice(1).join('/');

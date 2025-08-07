@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import '@/App.css';
+import '@/css/App.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Document from '@/components/Document';
@@ -12,7 +12,7 @@ function App() {
         <div className="App d-flex flex-column vh-100">
             <Header />
             <div className="row flex-grow-1 g-0" style={{ flexWrap: 'nowrap' }}>
-                <div className="col-auto border-end bg-light">
+                <div className="col-sm-2 border-end bg-light">
                     <Sidebar />
                 </div>
                 <div className="col" style={{ overflowY: 'auto' }}>

@@ -41,6 +41,7 @@ public enum ErrorCode {
     RPRT_ENC_FILE(400, HttpStatus.NOT_FOUND, "암호화된 전자신고 파일입니다."),
 
     RPRT_CREATE_ERROR(800, HttpStatus.INTERNAL_SERVER_ERROR, "생성되지 않은 보고서입니다."),
+
     ;
 
     private HttpStatus httpStatus;

@@ -13,9 +13,7 @@ const Sidebar = () => {
                     <Link to="/" className="nav-link text-white" aria-current="page">
                         Home
                     </Link>
-                </li>
-                <li>
-                    <Link to="/document" className="nav-link text-white"> {/* Document 링크 추가 */}
+                    <Link to="/Document" className="nav-link text-white" aria-current="page">
                         Document
                     </Link>
                 </li>

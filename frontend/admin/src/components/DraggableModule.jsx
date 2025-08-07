@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDraggable, DragOverlay } from '@dnd-kit/core';
 
-function DraggableModule({ type, children, id, renderComponent }) {
+function DraggableModule({ type, path, children, id, renderComponent }) {
     const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
         id: id,
         data: {
             isSidebarModule: true,
             type: type,
+            path: path,
             renderComponent: renderComponent,
         },
     });

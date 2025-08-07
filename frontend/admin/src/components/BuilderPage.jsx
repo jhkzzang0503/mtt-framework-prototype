@@ -33,11 +33,11 @@ const BuilderPage = () => {
         }
 
         const isSidebarModule = active.data.current?.isSidebarModule;
-
         if (isSidebarModule) {
             if (over.id === 'canvas' || over.id === 'top-drop-zone') {
                 addItem({
                     type: active.data.current.type,
+                    path: active.data.current.path,
                     renderedComponent: active.data.current.renderComponent,
                 });
             } else {
@@ -45,6 +45,7 @@ const BuilderPage = () => {
                 if (overIndex !== -1) {
                     addItem({
                         type: active.data.current.type,
+                        path: active.data.current.path,
                         renderedComponent: active.data.current.renderComponent,
                     }, overIndex + 1);
                 }
@@ -88,7 +89,7 @@ const BuilderPage = () => {
         <DndContext sensors={sensors} collisionDetection={collisionDetectionStrategy} onDragEnd={handleDragEnd}>
             <div className="row h-100 flex-grow-1 m-0">
                 <div className="col-md-2 px-0" style={{ overflowY: 'auto' }}>
-                    <ModulesLayout />
+                    <ModulesLayout/>
                 </div>
                 <div className="col-md-8" style={{ overflowY: 'auto' }}>
                     <BuilderCanvas

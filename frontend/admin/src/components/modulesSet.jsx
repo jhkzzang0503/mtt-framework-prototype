@@ -28,7 +28,8 @@ const ModulesSet = ({ selectedModule, onStyleChange }) => {
   }, [selectedModule]);
 
   const handleCreateFile = async () => {
-    const imports = items.map(item => `import ${item.type.split('/').pop()} from '@/components/modules/${item.type}';`).join('\n');
+    const imports = items.map(item => `import ${item.type.split('/').pop()} from '${item.path}';`).join('\n');
+    console.log("items :: ", items)
     const components = items.map(item => {
       const styleProp = item.styles?.customStyles ? `style={${JSON.stringify(item.styles.customStyles)}}` : '';
       const classProp = `className="${item.styles?.bootstrapClasses || ''} ${item.styles?.className || ''}"`.trim();
@@ -39,7 +40,7 @@ const ModulesSet = ({ selectedModule, onStyleChange }) => {
             ${imports}
             const ${fileName}Component = () => {
               return (
-                <div>
+                <div class="row">
                   ${components}
                 </div>
               );
@@ -48,30 +49,25 @@ const ModulesSet = ({ selectedModule, onStyleChange }) => {
             export default ${fileName}Component;
         `;
 
-    const fullFilePath = '/src/' + filePath + '/' + fileName + '.jsx';
-    /*console.log(JSON.stringify({
-      action: 'create_file',
-      file_path: fullFilePath,
+    console.log(JSON.stringify({
+      file_path: `/${filePath}/${fileName}.jsx`,
       file_content: fileContent,
-    }));*/
+    }));
 
     try {
-      const response = await fetchData('/api/admin/getTest');
+      let postData = {
+        "filePath": filePath,
+        "fileName": `${fileName}.jsx`,
+        "fileContent": fileContent
+      }
+      const response = await fetchData('/api/admin/postTest', 'post', postData);
 
-      // API 호출이 성공하면 `response` 객체에서 데이터에 접근할 수 있습니다.
       const result = response.data;
-      console.log("API 호출 성공1:", result);
-
-      let postData = {"test" : "test"};
-      const response2 = await fetchData('/api/admin/postTest', 'post', postData);
-
-      // API 호출이 성공하면 `response` 객체에서 데이터에 접근할 수 있습니다.
-      const result2 = response2.data;
-      console.log("API 호출 성공2:", result2);
+      console.log("API 호출 성공:", result);
+      alert(result['message'])
 
 
     } catch (err) {
-      // fetchData 내부에서 에러를 처리하므로, 여기서는 추가적인 에러 처리가 필요하지 않을 수 있음
       console.error("API 호출 실패:", err);
     } finally {
       console.log("fileContent : ", fileContent);
