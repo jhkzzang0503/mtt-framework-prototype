@@ -5,6 +5,7 @@ import useBuilderStore from '@/store';
 import ModulesLayout from '@/components/ModulesLayout';
 import BuilderCanvas from '@/components/BuilderCanvas';
 import ModulesSet from '@/components/modulesSet';
+import '@web/App.css'
 
 const BuilderPage = () => {
     const { addItem, moveItem, items, updateItemStyle, selectItem, selectedItemId, deleteItem } = useBuilderStore();

@@ -16,6 +16,9 @@ const Sidebar = () => {
                     <Link to="/Document" className="nav-link text-white" aria-current="page">
                         Document
                     </Link>
+                    <Link to="/admin" className="nav-link text-white" aria-current="page">
+                        admin
+                    </Link>
                 </li>
             </ul>
             <div className="dropdown">

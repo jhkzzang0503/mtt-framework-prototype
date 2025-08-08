@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import getModules from '@/utils/getModules.jsx';
+import getModules from '@/utils/getModules';
 import DraggableModule from '@/components/DraggableModule';
-import useBuilderStore from "../store.jsx";
+import useBuilderStore from "@/store";
 
 const ModulesLayout = () => {
     const modules = getModules();

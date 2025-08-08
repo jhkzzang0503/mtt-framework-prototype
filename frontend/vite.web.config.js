@@ -7,8 +7,8 @@ export default defineConfig({
   root: 'target',
   resolve: {
     alias: {
-      '@': '/src',
-      '@modulePath': path.resolve(__dirname, './admin/src')
+      '@web': '/src',
+      '@admin': path.resolve(__dirname, './admin/src')
     }
   },
   server: {

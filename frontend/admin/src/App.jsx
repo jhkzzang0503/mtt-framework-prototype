@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Document from '@/components/Document';
 import Sidebar from '@/components/Sidebar';
 import BuilderPage from '@/components/BuilderPage';
+import AdminPage from '@/components/AdminPage';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Routes>
                         <Route path="/document" element={<Document />} />
                         <Route path="/" element={<BuilderPage />} />
+                        <Route path="/admin" element={<AdminPage />} />
                     </Routes>
                 </div>
             </div>
